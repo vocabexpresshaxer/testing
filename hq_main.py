@@ -18,9 +18,9 @@ def processConn():
     while True:
         clientsocket, addr = serversocket.accept()
         recieved = clientsocket.recv(1024)
-        recieved = str(recieved)
+        recieved = recieved.decode("ascii")
         data = getResponse(recieved)
-        clientsocket.send(bytes(data))
+        clientsocket.send(data.encode("ascii"))
         clientsocket.close()
 
 def getResponse(data):
