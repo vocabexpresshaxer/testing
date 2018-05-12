@@ -52,13 +52,13 @@ async def websocket_handler(uri, headers):
                     message = re.sub(r"[\x00-\x1f\x7f-\x9f]", "", message)
 
                     message_data = json.loads(message)
-                    logging.info(str(message_data).encode("utf-8"))
+#logging.info(str(message_data).encode("utf-8"))
 
                     if "error" in message_data and message_data["error"] == "Auth not valid":
                         logging.info(message_data)
                         raise RuntimeError("Connection settings invalid")
                     elif message_data["type"] != "interaction":
-                        logging.info(message_data)
+                        #logging.info(message_data)
                         if message_data["type"] == "question":
                             question_str = unidecode(message_data["question"])
                             answers = [unidecode(ans["text"]) for ans in message_data["answers"]]
