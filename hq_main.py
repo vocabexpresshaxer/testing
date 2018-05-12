@@ -56,7 +56,7 @@ with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "conn_setting
 
 print("getting")
 main_url = "https://api-quiz.hype.space/shows/now?type=hq&userId=%s" % USER_ID
-headers = {"Authorization": f"Bearer {BEARER_TOKEN}",
+headers = {"Authorization": "Bearer %s" % BEARER_TOKEN,
            "x-hq-client": "Android/1.3.0"}
 # "x-hq-stk": "MQ==",
 # "Connection": "Keep-Alive",
