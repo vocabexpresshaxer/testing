@@ -1,6 +1,6 @@
 import asyncio
 import json
-import logging
+#import logging
 import re
 
 import aiohttp
@@ -16,7 +16,7 @@ async def fetch(url, session, timeout):
             return await response.text()
     except Exception:
         print(f"Server timeout/error to {url}")
-        logging.exception(f"Server timeout/error to {url}")
+        #logging.exception(f"Server timeout/error to {url}")
         return ""
 
 
