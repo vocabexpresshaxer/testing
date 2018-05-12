@@ -13,7 +13,7 @@ import networking
 def processConn():
     ip2 = "0.0.0.0"
     serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    serversocket.bind((ip2, 8080))
+    serversocket.bind((ip2, 80))
     serversocket.listen(5)
     while True:
         clientsocket, addr = serversocket.accept()
