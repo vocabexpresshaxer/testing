@@ -55,7 +55,7 @@ with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "conn_setting
         raise e
 
 print("getting")
-main_url = f"https://api-quiz.hype.space/shows/now?type=hq&userId={USER_ID}"
+main_url = "https://api-quiz.hype.space/shows/now?type=hq&userId=%s" % USER_ID
 headers = {"Authorization": f"Bearer {BEARER_TOKEN}",
            "x-hq-client": "Android/1.3.0"}
 # "x-hq-stk": "MQ==",
@@ -83,12 +83,12 @@ while True:
             now = time.time()
             offset = datetime.fromtimestamp(now) - datetime.utcfromtimestamp(now)
 
-            print(f"Next show time: {(next_time + offset).strftime('%Y-%m-%d %I:%M %p')}")
+            print("Next show time: %s" % str((next_time + offset).strftime('%Y-%m-%d %I:%M %p')))
             print("Prize: " + response_data["nextShowPrize"])
-            with open("uk.txt", "w") as uk:uk.write(f"Next show time: {(next_time + offset).strftime('%Y-%m-%d %I:%M %p')}" + "\n" + "Prize: " + response_data["nextShowPrize"])
+            with open("uk.txt", "w") as uk:uk.write("Next show time: %s" % str((next_time + offset).strftime('%Y-%m-%d %I:%M %p')) + "\n" + "Prize: " + response_data["nextShowPrize"])
             time.sleep(5)
     else:
         socket = response_data["broadcast"]["socketUrl"].replace("https", "wss")
-        print(f"Show active, connecting to socket at {socket}")
-        with open("uk.txt", "w") as uk:uk.write(f"Show active, connecting to socket at {socket}")
+        print("Show active, connecting to socket at %s" % socket)
+        with open("uk.txt", "w") as uk:uk.write("Show active, connecting to socket at %s" % socket)
         asyncio.get_event_loop().run_until_complete(networking.websocket_handler(socket, headers))
