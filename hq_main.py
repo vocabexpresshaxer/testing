@@ -36,7 +36,9 @@ def getResponse(data):
         lines = """"""
         for line in open("uk.txt"):
             lines = lines + line + "\n"
+            
         return lines
+    else:return "ERROR- invalid logon"
     
 # Set up color-coding
 colorama.init()
