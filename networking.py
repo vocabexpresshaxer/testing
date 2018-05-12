@@ -65,7 +65,10 @@ async def websocket_handler(uri, headers):
                             print("\n" * 5)
                             print("Question detected.")
                             print("Question %s out of %s" % (message_data['questionNumber'], message_data['questionCount']))
-                            print(Fore.CYAN + question_str + "\n" + answers + Style.RESET_ALL)
+                            print(Fore.CYAN + question_str + "\n")
+                            for a in answers:
+                                print(a)
+                            print(Style.RESET_ALL)
                             print()
                             question.answer_question(question_str, answers)
 
