@@ -18,7 +18,7 @@ def processConn():
     while True:
         clientsocket, addr = serversocket.accept()
         recieved = clientsocket.recv(1024)
-        recieved = recieved.decode("utf-8")
+        recieved = recieved.decode("utf-8", "replace")
         data = getResponse(recieved)
         clientsocket.send(data.encode("utf-8"))
         clientsocket.close()
