@@ -1,6 +1,6 @@
 import asyncio
 import socket
-#import logging
+
 import os
 import time
 from datetime import datetime
@@ -40,10 +40,10 @@ def getResponse(data):
         return lines
     else:return "ERROR- invalid logon"
     
-# Set up color-coding
+
 colorama.init()
-# Set up logging
-#logging.basicConfig(filename="data.log", level=logging.INFO, filemode="w")
+
+
 
 # Read in bearer token and user ID
 with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "conn_settings.txt"), "r") as conn_settings:
@@ -53,7 +53,7 @@ with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "conn_setting
         BEARER_TOKEN = settings[0].split("=")[1]
         USER_ID = settings[1].split("=")[1]
     except IndexError as e:
-        #logging.fatal(f"Settings read error: {settings}")
+
         raise e
 
 print("getting")
@@ -74,7 +74,7 @@ while True:
         time.sleep(1)
         continue
 
-    #.info(response_data)
+
 
     if "broadcast" not in response_data or response_data["broadcast"] is None:
         if "error" in response_data and response_data["error"] == "Auth not valid":
