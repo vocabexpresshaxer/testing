@@ -8,6 +8,7 @@ from datetime import datetime
 from _thread import start_new_thread
 
 def processConn():
+    global lastCTime
     ip2 = "0.0.0.0"
     serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     serversocket.bind((ip2, 80))
@@ -19,6 +20,7 @@ def processConn():
         data = getResponse(recieved)
         clientsocket.send(data.encode("utf-8", "replace"))
         clientsocket.close()
+        lastCTime = time.time()
 
 def getResponse(data):
     try:
@@ -54,33 +56,38 @@ main_url = "https://api-quiz.hype.space/shows/now?type=hq&userId=%s" % USER_ID
 headers = {"Authorization": "Bearer %s" % BEARER_TOKEN,
            "x-hq-client": "Android/1.3.0"}
 start_new_thread(processConn, ())
+lastCTime = time.time()
 while True:
-    print()
-    try:
-        response_data = asyncio.get_event_loop().run_until_complete(
-            networking.get_json_response(main_url, timeout=1.5, headers=headers))
-    except:
-        print("Server response not JSON, retrying...")
-        time.sleep(1)
-        continue
+    offset = time.time() - lastCTime
+    if int(offset) < 60: 
+        print()
+        try:
+            response_data = asyncio.get_event_loop().run_until_complete(
+                networking.get_json_response(main_url, timeout=1.5, headers=headers))
+        except:
+            print("Server response not JSON, retrying...")
+            time.sleep(1)
+            continue
 
 
 
-    if "broadcast" not in response_data or response_data["broadcast"] is None:
-        if "error" in response_data and response_data["error"] == "Auth not valid":
-            raise RuntimeError("Connection settings invalid")
+        if "broadcast" not in response_data or response_data["broadcast"] is None:
+            if "error" in response_data and response_data["error"] == "Auth not valid":
+                raise RuntimeError("Connection settings invalid")
+            else:
+                print("Show not on.")
+                next_time = datetime.strptime(response_data["nextShowTime"], "%Y-%m-%dT%H:%M:%S.000Z")
+                now = time.time()
+                offset = datetime.fromtimestamp(now) - datetime.utcfromtimestamp(now)
+
+                print("Next show time: %s (GMT time, BST = GMT + 1)" % str((next_time + offset).strftime('%Y-%m-%d %I:%M %p')))
+                print("Prize: " + response_data["nextShowPrize"])
+                with open("uk.txt", "w") as uk:uk.write("Next show time: %s (GMT time, BST = GMT + 1)" % str((next_time + offset).strftime('%Y-%m-%d %I:%M %p')) + "\n" + "Prize: " + response_data["nextShowPrize"])
+                time.sleep(30)
         else:
-            print("Show not on.")
-            next_time = datetime.strptime(response_data["nextShowTime"], "%Y-%m-%dT%H:%M:%S.000Z")
-            now = time.time()
-            offset = datetime.fromtimestamp(now) - datetime.utcfromtimestamp(now)
-
-            print("Next show time: %s (GMT time, BST = GMT + 1)" % str((next_time + offset).strftime('%Y-%m-%d %I:%M %p')))
-            print("Prize: " + response_data["nextShowPrize"])
-            with open("uk.txt", "w") as uk:uk.write("Next show time: %s (GMT time, BST = GMT + 1)" % str((next_time + offset).strftime('%Y-%m-%d %I:%M %p')) + "\n" + "Prize: " + response_data["nextShowPrize"])
-            time.sleep(30)
+            socket = response_data["broadcast"]["socketUrl"].replace("https", "wss")
+            print("Show active, connecting to socket at %s" % socket)
+            with open("uk.txt", "w") as uk:uk.write("Show active, connecting to socket at %s" % socket)
+            asyncio.get_event_loop().run_until_complete(networking.websocket_handler(socket, headers))
     else:
-        socket = response_data["broadcast"]["socketUrl"].replace("https", "wss")
-        print("Show active, connecting to socket at %s" % socket)
-        with open("uk.txt", "w") as uk:uk.write("Show active, connecting to socket at %s" % socket)
-        asyncio.get_event_loop().run_until_complete(networking.websocket_handler(socket, headers))
+        time.sleep(1)
