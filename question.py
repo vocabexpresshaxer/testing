@@ -28,12 +28,20 @@ def answer_question(question, options):
     print("Search Took %s Seconds" % str(t))
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
 def simplify_ques(question):
+	question = question.lower()
 	neg=False
 	remove_words = ["who","what","where","when","of","and","that","have","for","the","why","the","on","with","as","this","by","from","they","a","an","and","my","are","in","to","these","is","does","which","his","her","also","have","it","not","we","means","you","comes","came","come","about","if","by","from","go","?",",","!","'","has","\""]
 	negative_words = ["not","isn\"t","except","don\"t","doesn\"t","wasn\"t","wouldn\"t","can\"t"]
-	qwords = question.lower().split()
+	qwords = question.split()
 	if [i for i in qwords if i in negative_words]:
 		neg=True
+	
+	#remove neg word
+	for w in qwords:
+		if w in negative_words:
+			qwords = qwords.remove(w)
+	#i did this so fingers crossed :)
+			
 	cleanwords = [word for word in qwords if word.lower() not in remove_words]
 	temp = ' '.join(cleanwords)
 	clean_question=""
