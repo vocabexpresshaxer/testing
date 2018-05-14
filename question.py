@@ -1,9 +1,8 @@
-﻿import re, sys
+import re, sys, time, itertools
+import urllib.request as urllib2
 from google import google
-import time, itertools
 from collections import defaultdict
 from colorama import Fore, Style
-import urllib.request as urllib2
 from bs4 import BeautifulSoup
 punctuation_to_none = str.maketrans({key: None for key in "!\"#$%&\'()*+,-.:;<=>?@[\\]^_`{|}~�"})
 punctuation_to_space = str.maketrans({key: " " for key in "!\"#$%&\'()*+,-.:;<=>?@[\\]^_`{|}~�"})
@@ -42,7 +41,6 @@ def simplify_ques(question):
 	for ch in temp: 
 		if ch!="?" or ch!="\"" or ch!="\'":
 			clean_question=clean_question+ch
-
 	return clean_question.lower(),neg
     
 def get_page(link):
