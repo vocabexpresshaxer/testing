@@ -39,10 +39,16 @@ def simplify_ques(question):
 	#remove neg word
 	for w in qwords:
 		if w in negative_words:
-			qwords = qwords.remove(w)
+			qwords.remove(w)
 	#i did this so fingers crossed :)
 			
-	cleanwords = [word for word in qwords if word.lower() not in remove_words]
+		
+	try:
+		cleanwords = [word for word in qwords if word.lower() not in remove_words]
+		
+	except:
+		cleanwords = qwords
+		
 	temp = ' '.join(cleanwords)
 	clean_question=""
 	#remove ?
