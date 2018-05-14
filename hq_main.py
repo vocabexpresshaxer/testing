@@ -1,14 +1,11 @@
 import asyncio
 import socket
-
 import os
 import time
+import colorama
+import networking
 from datetime import datetime
 from _thread import start_new_thread
-
-import colorama
-
-import networking
 
 def processConn():
     ip2 = "0.0.0.0"
@@ -36,33 +33,26 @@ def getResponse(data):
         lines = """"""
         for line in open("uk.txt"):
             lines = lines + line + "\n"
-            
         return lines
     else:return "ERROR- invalid logon"
-    
+ 
 
 colorama.init()
-
 
 
 # Read in bearer token and user ID
 with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "conn_settings.txt"), "r") as conn_settings:
     settings = conn_settings.read().splitlines()
-
     try:
         BEARER_TOKEN = settings[0].split("=")[1]
         USER_ID = settings[1].split("=")[1]
     except IndexError as e:
-
         raise e
 
 print("getting")
 main_url = "https://api-quiz.hype.space/shows/now?type=hq&userId=%s" % USER_ID
 headers = {"Authorization": "Bearer %s" % BEARER_TOKEN,
            "x-hq-client": "Android/1.3.0"}
-# "x-hq-stk": "MQ==",
-# "Connection": "Keep-Alive",
-# "User-Agent": "okhttp/3.8.0"}
 start_new_thread(processConn, ())
 while True:
     print()
