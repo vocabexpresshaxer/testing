@@ -83,7 +83,7 @@ while True:
                 print("Next show time: %s (GMT)" % str((next_time + offset).strftime('%Y-%m-%d %I:%M %p')))
                 print("Prize: " + response_data["nextShowPrize"])
                 with open("uk.txt", "w") as uk:uk.write("Next show time: %s (GMT)" % str((next_time + offset).strftime('%Y-%m-%d %I:%M %p')) + "\n" + "Prize: " + response_data["nextShowPrize"])
-                time.sleep(30)
+                time.sleep(5)
         else:
             socket = response_data["broadcast"]["socketUrl"].replace("https", "wss")
             print("Show active, connecting to socket at %s" % socket)
