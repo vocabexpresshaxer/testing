@@ -38,12 +38,13 @@ def getResponse(data):
         return lines
     else:return "ERROR- invalid logon"
  
+conn_name = "ukconn.txt"
 
 colorama.init()
 
 
 # Read in bearer token and user ID
-with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "conn_settings.txt"), "r") as conn_settings:
+with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), conn_name), "r") as conn_settings:
     settings = conn_settings.read().splitlines()
     try:
         BEARER_TOKEN = settings[0].split("=")[1]
