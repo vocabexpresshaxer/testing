@@ -80,9 +80,9 @@ while True:
                 now = time.time()
                 offset = datetime.fromtimestamp(now) - datetime.utcfromtimestamp(now)
 
-                print("Next show time: %s (GMT time, BST = GMT + 1)" % str((next_time + offset).strftime('%Y-%m-%d %I:%M %p')))
+                print("Next show time: %s (GMT)" % str((next_time + offset).strftime('%Y-%m-%d %I:%M %p')))
                 print("Prize: " + response_data["nextShowPrize"])
-                with open("uk.txt", "w") as uk:uk.write("Next show time: %s (GMT time, BST = GMT + 1)" % str((next_time + offset).strftime('%Y-%m-%d %I:%M %p')) + "\n" + "Prize: " + response_data["nextShowPrize"])
+                with open("uk.txt", "w") as uk:uk.write("Next show time: %s (GMT)" % str((next_time + offset).strftime('%Y-%m-%d %I:%M %p')) + "\n" + "Prize: " + response_data["nextShowPrize"])
                 time.sleep(30)
         else:
             socket = response_data["broadcast"]["socketUrl"].replace("https", "wss")
