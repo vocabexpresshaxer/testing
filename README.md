@@ -16,13 +16,35 @@ Curently supporting these HQ games:
 
 # How To Use
 
-- - -
+Step 1
+-
+Navigate to https://repl.it/repls/MediumblueRightCron in a browser window on your computer (phones work, but are too small)
+
+Step 2
+-
+Click the button that says 'run', with the play button
+
+Step 3
+-
+When prompted for the password for the server (in the terminal on the right side of the screen), input the password that was given by me when you payed, and press the enter button on your keyboard.
+
+Step 4
+-
+The bot should now be running :) yay! Just now keep the browser window open, when a new question gets detected, the bot will try and find an answer, and then it will be displayed on the screen, in the terminal.
+
+FAQ
+-
+Q: As the client is made in python, can i just copy the code and run it from my computer directly in my python environment
+
+A: Of course! The reason why the client is on repl.it is so people don't have to install a python environment, and can run the bot from ANYWHERE, but if you want to run it on your computer directly, feel free, but make sure to use python 3.x, as the client isn't compatible with python 2
+
+
 
 # Pricing
 
 Currently, until all the bugs have been completely ironed out, and the answer searcher is as accurate as possible, the bot will be completely FREE. 
 
-While the bot is free, use the code 'test' (without quote marks, all lowercase) to gain access to the bot. Once the bot gets made paid, it will change weekly.
+While the bot is free, use the password 'test' (without quote marks, all lowercase) to gain access to the bot. Once the bot gets made paid, it will change weekly.
 
 
 The price will be £1 weekly (Less than a price of a coffee), which is 5x2 games (weekdays) and 2x1 games (weekends) = 12 Games per server (UK+US, 24 Games total), not even including all the 'suprise' games with massive jackpots.
