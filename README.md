@@ -8,7 +8,11 @@ Curently supporting these HQ games:
 
 -> UK (@2PM + 8PM UTC, as well as all 'suprise' games)
 
--> (US NOT YET SUPPORTED (7PM + 1AM UTC, as well as all 'suprise' games))
+-> (US NOT YET SUPPORTED)
+
+(7PM + 1AM UTC, as well as all 'suprise' games)
+
+
 
 # How To Use
 
