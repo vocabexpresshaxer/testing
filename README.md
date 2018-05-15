@@ -18,11 +18,11 @@ Curently supporting these HQ games:
 
 Step 1
 -
-Navigate to https://repl.it/repls/MediumblueRightCron in a browser window on your computer (phones work, but are too small)
+Navigate to https://repl.it/repls/MediumblueRightCron in a browser window on your computer (phones work, but are too small to see and use, plus increase difficulty of switching tabs back to HQ etc.)
 
 Step 2
 -
-Click the button that says 'run', with the play button
+Click the button that says 'run', with the play button near the top
 
 Step 3
 -
