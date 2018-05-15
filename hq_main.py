@@ -14,13 +14,15 @@ def processConn():
     serversocket.bind((ip2, 80))
     serversocket.listen(5)
     while True:
-        clientsocket, addr = serversocket.accept()
-        recieved = clientsocket.recv(1024)
-        recieved = recieved.decode("utf-8", "replace")
-        data = getResponse(recieved)
-        clientsocket.send(data.encode("utf-8", "replace"))
-        clientsocket.close()
-        lastCTime = time.time()
+        try:
+            clientsocket, addr = serversocket.accept()
+            recieved = clientsocket.recv(1024)
+            recieved = recieved.decode("utf-8", "replace")
+            data = getResponse(recieved)
+            clientsocket.send(data.encode("utf-8", "replace"))
+            clientsocket.close()
+            lastCTime = time.time()
+        except Exception as e:print(e)
 
 def getResponse(data):
     try:
