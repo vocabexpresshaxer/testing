@@ -5,7 +5,7 @@ It is run on a powerful server with gigabit internet speeds,meaning it can proce
 
 
 Curently supporting these HQ games:
-
+-
 -> UK (@2PM + 8PM UTC, as well as all 'suprise' games)
 
 -> (US NOT YET SUPPORTED)
