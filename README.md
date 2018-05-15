@@ -20,9 +20,13 @@ Curently supporting these HQ games:
 
 # Pricing
 
-Currently, until all the bugs have been completely ironed out, and the answer searcher is as accurate as possible, the bot will be completely FREE. While the bot is free, use the code 'test' (without quote marks, all lowercase) to gain access to the bot. Once the bot gets made paid, it will change weekly.
+Currently, until all the bugs have been completely ironed out, and the answer searcher is as accurate as possible, the bot will be completely FREE. 
 
-The price will be £1 weekly (Less than a price of a coffee), which is 5x2 games (weekdays) and 2x1 games (weekends) = 12 Games, not including all the 'suprise' games with massive jackpots.
+While the bot is free, use the code 'test' (without quote marks, all lowercase) to gain access to the bot. Once the bot gets made paid, it will change weekly.
+
+
+The price will be £1 weekly (Less than a price of a coffee), which is 5x2 games (weekdays) and 2x1 games (weekends) = 12 Games per server (UK+US, 24 Games total), not even including all the 'suprise' games with massive jackpots.
+
 
 The price of access of the bot will (hopefully) decrease over time, as more people become intrested, as the money only needs to cover the running server costs (expensive!), and recoup the costs of the server during development.
 
