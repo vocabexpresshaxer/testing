@@ -10,15 +10,30 @@ Curently supporting these HQ games:
 
 -> (US NOT YET SUPPORTED (7PM + 1AM UTC, as well as all 'suprise' games))
 
-#Pricing
+# How To Use
+
+- - -
+
+# Pricing
 
 Currently, until all the bugs have been completely ironed out, and the answer searcher is as accurate as possible, the bot will be completely FREE. While the bot is free, use the code 'test' (without quote marks, all lowercase) to gain access to the bot. Once the bot gets made paid, it will change weekly.
 
-The price will be £1 weekly (Less than a price of a coffee), which is 5x2 games (weekdays) and 2x1 games (weekends) = 12 Games, not including all the 'suprise' games with massive jackpots. 
+The price will be £1 weekly (Less than a price of a coffee), which is 5x2 games (weekdays) and 2x1 games (weekends) = 12 Games, not including all the 'suprise' games with massive jackpots.
 
 The price of access of the bot will (hopefully) decrease over time, as more people become intrested, as the money only needs to cover the running server costs (expensive!), and recoup the costs of the server during development.
 
 
-#Guarantee
+Accepted forms of payment:
+-
+-> BTC, BCH, ETH or any other reasonably large cryptocurrency.
+
+-> Paypal
+
+-> Amazon.co.uk gift cards
+
+
+# Guarantee
+
+In the unlikely event that the bot goes down for any reason, i would be more than happy to reinburse the cost for the duration bot over the time the bot goes down and/or extend the access time for the bot by the duration of the bot downtime.
 
 
