@@ -1,7 +1,7 @@
 # HQ Trivia Acebot
 
 HQ Trivia Acebot uses a total of 1 search method to find the most likely answer for HQ Trivia questions.
-It is run on a powerful server with gigabit internet speeds,meaning it can process much more data and information that a standard pc, increasing the number of correct answers, however this bot can't promise all correct answers due to HQ always striving to make HQ as hard as possible to bot or search answers, by making 'decoy' questions, obvious to humans, but that are able to trick a bot. 
+It is run on a powerful server with gigabit internet speeds, meaning it can process much more data and information that a standard pc, increasing the number of correct answers, however this bot can't promise all correct answers due to HQ always striving to make HQ as hard as possible to bot or search answers, by making 'decoy' questions, obvious to humans, but that are able to trick a bot. 
 
 
 Curently supporting these HQ games:
@@ -46,11 +46,9 @@ Currently, until all the bugs have been completely ironed out, and the answer se
 
 While the bot is free, use the password 'test' (without quote marks, all lowercase) to gain access to the bot. Once the bot gets made paid, it will change weekly.
 
-
-The price will be £1 weekly (Less than a price of a coffee), which is 5x2 games (weekdays) and 2x1 games (weekends) = 12 Games per server (UK+US, 24 Games total), not even including all the 'suprise' games with massive jackpots.
-
-
-The price of access of the bot will (hopefully) decrease over time, as more people become intrested, as the money only needs to cover the running server costs (expensive!), and recoup the costs of the server during development.
+£1 / week = 12 Games per week (24 if you compete in both the UK and US games), not even including all the 'suprise' games with massive jackpots.
+-
+The price of access of the bot will (hopefully) decrease over time, as more people become intrested, as the money only needs to cover the running server costs (expensive!), and recoup the costs of the server during development. This bot is created for the greater good, not profit.
 
 
 Accepted forms of payment:
@@ -61,6 +59,13 @@ Accepted forms of payment:
 
 -> Amazon.co.uk gift cards
 
+To buy, contact me:
+-
+caffiene0addict0420@gmail.com (EMAIL)
+
+Caffiene_Addict_420 (REDDIT)
+
+Make sure to check spelling of my account before sending a message, as i spell Caffeine like Caffiene, so be warned that you may of spelt it the correct way, but just not the way of my account. If i don't reply within a day, please send the email again, checking the name.
 
 # Guarantee
 
