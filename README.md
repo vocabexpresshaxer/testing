@@ -3,6 +3,15 @@
 HQ Trivia Acebot uses a total of 1 search method to find the most likely answer for HQ Trivia questions.
 It is run on a powerful server with gigabit internet speeds, meaning it can process much more data and information that a standard pc, increasing the number of correct answers, however this bot can't promise all correct answers due to HQ always striving to make HQ as hard as possible to bot or search answers, by making 'decoy' questions, obvious to humans, but that are able to trick a bot. 
 
+Features:
+-
+* 1 Search Method
+* Powerful Server running 24/7
+* Server running Gigabit internet speeds
+
+
+
+
 
 Curently supporting these HQ games:
 -
