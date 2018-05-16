@@ -40,7 +40,7 @@ def getResponse(data):
         return lines
     else:return "ERROR- invalid logon"
  
-conn_name = "ukconn.txt"
+conn_name = "usconn.txt"
 
 colorama.init()
 
