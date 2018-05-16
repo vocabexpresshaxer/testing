@@ -7,54 +7,6 @@ from bs4 import BeautifulSoup
 punctuation_to_none = str.maketrans({key: None for key in "!\"#$%&\'()*+,-.:;<=>?@[\\]^_`{|}~�"})
 punctuation_to_space = str.maketrans({key: " " for key in "!\"#$%&\'()*+,-.:;<=>?@[\\]^_`{|}~�"})
 
-###########################################################################
-async def __search_method3(question_keywords, question_key_nouns, answers, reverse):
-    search_results = await search.multiple_search(answers, 5)
-    print("Search processed")
-    answer_lengths = list(map(len, search_results))
-    search_results = itertools.chain.from_iterable(search_results)
-    texts = [x.translate(punctuation_to_none) for x in await search.get_clean_texts(search_results)]
-    print("URLs fetched")
-    answer_text_map = {}
-    for idx, length in enumerate(answer_lengths):
-        answer_text_map[answers[idx]] = texts[0:length]
-        del texts[0:length]
-    keyword_scores = {answer: 0 for answer in answers}
-    noun_scores = {answer: 0 for answer in answers}
-    # Create a dictionary of word to type of score so we avoid searching for the same thing twice in the same page
-    word_score_map = defaultdict(list)
-    for word in question_keywords:
-        word_score_map[word].append("KW")
-    for word in question_key_nouns:
-        word_score_map[word].append("KN")
-    answer_noun_scores_map = {}
-    for answer, texts in answer_text_map.items():
-        keyword_score = 0
-        noun_score = 0
-        noun_score_map = defaultdict(int)
-        for text in texts:
-            for keyword, score_types in word_score_map.items():
-                score = len(re.findall(" %s " % keyword, text))
-                if "KW" in score_types:
-                    keyword_score += score
-                if "KN" in score_types:
-                    noun_score += score
-                    noun_score_map[keyword] += score
-        keyword_scores[answer] = keyword_score
-        noun_scores[answer] = noun_score
-        answer_noun_scores_map[answer] = noun_score_map
-    print()
-    #print("\n".join([f"{answer}: {dict(scores)}" for answer, scores in answer_noun_scores_map.items()]))
-    print()
-    print("Keyword scores: %s" % str(keyword_scores))
-    print("Noun scores: %s" % str(noun_scores))
-    if set(noun_scores.values()) != {0}:
-        return min(noun_scores, key=noun_scores.get) if reverse else max(noun_scores, key=noun_scores.get)
-    if set(keyword_scores.values()) != {0}:
-        return min(keyword_scores, key=keyword_scores.get) if reverse else max(keyword_scores, key=keyword_scores.get)
-    return ""
-###########################################################################
-
 def answer_question(question, options):
     print("Searching")
     start = time.time()
@@ -165,3 +117,51 @@ def google_wiki(sim_ques, options, neg):
 			maxp=temp
 			maxo=original
 	return points,maxo
+
+###########################################################################
+async def __search_method3(question_keywords, question_key_nouns, answers, reverse):
+    search_results = await search.multiple_search(answers, 5)
+    print("Search processed")
+    answer_lengths = list(map(len, search_results))
+    search_results = itertools.chain.from_iterable(search_results)
+    texts = [x.translate(punctuation_to_none) for x in await search.get_clean_texts(search_results)]
+    print("URLs fetched")
+    answer_text_map = {}
+    for idx, length in enumerate(answer_lengths):
+        answer_text_map[answers[idx]] = texts[0:length]
+        del texts[0:length]
+    keyword_scores = {answer: 0 for answer in answers}
+    noun_scores = {answer: 0 for answer in answers}
+    # Create a dictionary of word to type of score so we avoid searching for the same thing twice in the same page
+    word_score_map = defaultdict(list)
+    for word in question_keywords:
+        word_score_map[word].append("KW")
+    for word in question_key_nouns:
+        word_score_map[word].append("KN")
+    answer_noun_scores_map = {}
+    for answer, texts in answer_text_map.items():
+        keyword_score = 0
+        noun_score = 0
+        noun_score_map = defaultdict(int)
+        for text in texts:
+            for keyword, score_types in word_score_map.items():
+                score = len(re.findall(" %s " % keyword, text))
+                if "KW" in score_types:
+                    keyword_score += score
+                if "KN" in score_types:
+                    noun_score += score
+                    noun_score_map[keyword] += score
+        keyword_scores[answer] = keyword_score
+        noun_scores[answer] = noun_score
+        answer_noun_scores_map[answer] = noun_score_map
+    print()
+    #print("\n".join([f"{answer}: {dict(scores)}" for answer, scores in answer_noun_scores_map.items()]))
+    print()
+    print("Keyword scores: %s" % str(keyword_scores))
+    print("Noun scores: %s" % str(noun_scores))
+    if set(noun_scores.values()) != {0}:
+        return min(noun_scores, key=noun_scores.get) if reverse else max(noun_scores, key=noun_scores.get)
+    if set(keyword_scores.values()) != {0}:
+        return min(keyword_scores, key=keyword_scores.get) if reverse else max(keyword_scores, key=keyword_scores.get)
+    return ""
+###########################################################################
