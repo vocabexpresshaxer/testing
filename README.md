@@ -24,7 +24,6 @@ Curently supporting these HQ games:
 (7PM + 1AM UTC, as well as all 'suprise' games)
 
 
-
 # How To Use
 
 Step 1
@@ -57,10 +56,12 @@ Currently, until all the bugs have been completely ironed out, and the answer se
 
 While the bot is free, use the password 'test' (without quote marks, all lowercase) to gain access to the bot. Once the bot gets made paid, it will change weekly.
 
-£1 / week = 12 Games per week (24 if you compete in both the UK and US games), not even including all the 'suprise' games with massive jackpots.
--
 The price of access of the bot will (hopefully) decrease over time, as more people become intrested, as the money only needs to cover the running server costs (expensive!), and recoup the costs of the server during development. This bot is created for the greater good, not profit.
 
+You may share a code with friends, and split the cost etc., however you may NOT post an access code that you have online. If you want to test the bot before buying, please contact me. 
+
+£1 ($1.35) / week = 12 Games per week (24 if you compete in both the UK and US games), + all the suprise games with massive jackpots.
+-
 
 Accepted forms of payment:
 -
