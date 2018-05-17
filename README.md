@@ -48,7 +48,11 @@ Q: As the client is made in python, can i just copy the code and run it from my 
 
 A: Of course! The reason why the client is on repl.it is so people don't have to install a python environment, and can run the bot from ANYWHERE, but if you want to run it on your computer directly, feel free, but make sure to use python 3.x, as the client isn't compatible with python 2
 
+Q: Why is the bot not getting every question right?
 
+A: It would be impossible to create a bot that wins every time, and that it probably be the end of HQ if that was the case. I have tried to make it as accurate as possible, however there are specific instances where common sense is needed.
+
+The bot struggles when you have to compare the answers e.g. what author is the oldest out of the answers, but isn't the oldest author ever. The bot also struggles when one (or part of) the answers is in the question, so care is adviced, and don't just follow the bot blindly, but it is a good start, especially in lots of the savage questions :cheeky:
 
 # Pricing
 
