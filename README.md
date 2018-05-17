@@ -52,7 +52,7 @@ Q: Why is the bot not getting every question right?
 
 A: It would be impossible to create a bot that wins every time, and that it probably be the end of HQ if that was the case. I have tried to make it as accurate as possible, however there are specific instances where common sense is needed.
 
-The bot struggles when you have to compare the answers e.g. what author is the oldest out of the answers, but isn't the oldest author ever. The bot also struggles when one (or part of) the answers is in the question, so care is adviced, and don't just follow the bot blindly, but it is a good start, especially in lots of the savage questions :cheeky:
+The bot struggles when you have to compare the answers e.g. what author is the oldest out of the answers, but isn't the oldest author ever. The bot also struggles when one (or part of) the answers is in the question, so care is adviced, and don't just follow the bot blindly, but it is a good start, especially in lots of the savage questions
 
 # Pricing
 
