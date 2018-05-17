@@ -8,7 +8,7 @@ Features:
 * 1 Search Method
 * Powerful Server running 24/7
 * Server running Gigabit internet speeds
-* New features and search methods constantly being created to give you the edge
+* New features and search methods constantly being created to give you the edge over other competitors
 * Regulary updated to bypass new restrictions / measures created by HQ Trivia
 
 
